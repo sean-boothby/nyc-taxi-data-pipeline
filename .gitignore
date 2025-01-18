@@ -1,5 +1,5 @@
 # Ignore data directory
-data/
+extract-pipleine/data/
 
 # Ignore specific config files
 config/db_config.json
