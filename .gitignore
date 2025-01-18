@@ -1,0 +1,15 @@
+# Ignore data directory
+data/
+
+# Ignore specific config files
+config/db_config.json
+config/gcs_config.json
+
+# Ignore Airflow logs
+airflow_logs/
+
+# Ignore Python cache
+__pycache__/
+
+# Ignore environment variables
+.env
