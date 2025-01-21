@@ -5,7 +5,7 @@ from sqlalchemy import text
 from dotenv import load_dotenv
 
 # Load environment variables (database credentials)
-load_dotenv()
+load_dotenv(r"C:\Users\Sean\Desktop\de-taxi-pipeline\config\.env")
 
 # PostgreSQL connection settings
 DB_USER = os.getenv("DB_USER", "taxi_user")
@@ -15,7 +15,7 @@ DB_PORT = os.getenv("DB_PORT", "5432")
 DB_NAME = os.getenv("DB_NAME", "nyc_taxi")
 
 # Directory where Parquet files are stored
-DATA_DIR = r"C:\Users\Sean\Desktop\de-taxi-pipeline\extract-pipeline\data\raw"
+DATA_DIR = r"..\data\raw"
 
 # Get the latest Parquet file
 parquet_files = sorted([f for f in os.listdir(DATA_DIR) if f.endswith(".parquet")], reverse=True)

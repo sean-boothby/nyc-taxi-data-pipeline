@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from google.oauth2 import service_account
 
 # Load environment variables
-load_dotenv()
+load_dotenv(r"C:\Users\Sean\Desktop\de-taxi-pipeline\config\.env")
 
 # Google Cloud settings
 GCS_BUCKET_NAME = "nyc-taxi-data-pipeline"  # Change to your actual bucket
@@ -16,7 +16,7 @@ BQ_TABLE = f"{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}"
 GCS_URI = f"gs://{GCS_BUCKET_NAME}/{GCS_FILE_PATH}"
 
 # Initialize BigQuery client
-GCS_KEY_PATH = os.getenv("GCS_KEY_PATH", "config/gcs_service_account.json")
+GCS_KEY_PATH = os.getenv("GCS_KEY_PATH", "../config/gcs_service_account.json")
 
 # Load credentials explicitly
 credentials = service_account.Credentials.from_service_account_file(GCS_KEY_PATH)

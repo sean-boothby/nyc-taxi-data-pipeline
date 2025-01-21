@@ -1,5 +1,5 @@
 # Ignore data directory
-extract-pipleine/data/
+data/
 
 # Ignore specific config files
 config/db_config.json
@@ -12,10 +12,10 @@ airflow_logs/
 __pycache__/
 
 # Ignore environment variables
-.env
+config/.env
 
 # Ignore postgres variables
 staging-pipeline/.env
 
 # Ignore GCS creds
-staging-pipeline/config/gcs_service_account.json
+config/gcs_service_account.json

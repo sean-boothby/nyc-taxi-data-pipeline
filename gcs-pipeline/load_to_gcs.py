@@ -3,14 +3,14 @@ from google.cloud import storage
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
+load_dotenv(r"C:\Users\Sean\Desktop\de-taxi-pipeline\config\.env")
 
 # Google Cloud Storage settings
 GCS_BUCKET_NAME = "nyc-taxi-data-pipeline"  # Change to your actual bucket name
-GCS_KEY_PATH = os.getenv("GCS_KEY_PATH", "config/gcs_service_account.json")
+GCS_KEY_PATH = os.getenv("GCS_KEY_PATH", "../config/gcs_service_account.json")
 
 # Local storage settings
-CLEANED_DIR = "data/cleaned"
+CLEANED_DIR = "../data/cleaned"
 TABLE_NAME = "yellow_taxi_trips"
 cleaned_file_path = os.path.join(CLEANED_DIR, f"{TABLE_NAME}_cleaned.parquet")
 

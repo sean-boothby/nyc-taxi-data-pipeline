@@ -6,7 +6,7 @@ from datetime import datetime
 BASE_URL = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{}-{}.parquet"
 
 # Define the output directory
-OUTPUT_DIR = "data/raw"
+OUTPUT_DIR = "../data/raw"
 os.makedirs(OUTPUT_DIR, exist_ok=True)  # Ensure directory exists
 
 # Specify the year and month for the data you want to fetch

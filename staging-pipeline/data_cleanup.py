@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
+load_dotenv(r"C:\Users\Sean\Desktop\de-taxi-pipeline\config\.env")
 
 # PostgreSQL connection settings
 DB_USER = os.getenv("DB_USER", "taxi_user")
@@ -14,7 +14,7 @@ DB_PORT = os.getenv("DB_PORT", "5432")
 DB_NAME = os.getenv("DB_NAME", "nyc_taxi")
 
 # Local storage settings
-CLEANED_DIR = "data/cleaned"
+CLEANED_DIR = "../data/cleaned"
 os.makedirs(CLEANED_DIR, exist_ok=True)  # Ensure directory exists
 
 # Connect to PostgreSQL
