@@ -15,7 +15,8 @@ Welcome to the **NYC Taxi Data Processing Pipeline** project! This repository de
     - [4. BigQuery Loading](#4-bigquery-loading)
 5. [Technologies Used](#technologies-used)
 6. [Project Structure](#project-structure)
-7. [Future Enhancements](#future-enhancements)
+7. [Running the Pipeline](#running-the-pipeline)
+8. [Future Enhancements](#future-enhancements)
 
 ---
 
@@ -45,6 +46,8 @@ _Illustration of the pipeline's modular architecture._
 - **Cloud Integration**: Utilizes Google Cloud Storage and BigQuery for scalability.
 - **Data Quality Enforcement**: Ensures data consistency, correct data types, and schema compliance.
 - **Partitioned and Clustered Storage**: Optimized for large-scale analytics in BigQuery.
+- **Fully Dockerized**: The entire pipeline can be run using Docker for easy deployment.
+- **Airflow Orchestration**: The pipeline is managed with Apache Airflow for automation and scheduling.
 
 ---
 
@@ -86,44 +89,56 @@ _Illustration of the pipeline's modular architecture._
   - `sqlalchemy`: PostgreSQL connection
   - `google-cloud-storage`: Integration with GCS
   - `google-cloud-bigquery`: Integration with BigQuery
-- **Tools**: Docker (optional for PostgreSQL setup)
+- **Orchestration**: Apache Airflow
+- **Tools**: Docker
 - **File Formats**: Parquet
 
 ---
 
 ## **Project Structure**
 ```
-nyc-taxi-data-pipeline/
-│── data/
-│   ├── cleaned/                     # Cleaned Parquet files
-│   ├── raw/                         # Raw files (optional)
-│── extract-pipeline/
-│   ├── grab_taxi_data.py            # Extraction script
-│── staging-pipeline/
-│   ├── data_cleanup.py              # Data cleanup and transformation
-│   ├── load_to_postgres.py          # Load raw data to PostgreSQL
-│── gcs-pipeline/
-│   ├── load_to_gcs.py               # Upload cleaned data to GCS
-│── bigquery-pipeline/
-│   ├── load_to_bigquery.py          # Load data from GCS to BigQuery
-│── config/
-│   ├── gcs_service_account.json     # GCS credentials (gitignored)
-│   ├── .env                         # Environment variables (gitignored)
-│── README.md                        # Documentation
+de-taxi-pipeline/
+│── airflow/                      # Airflow DAGs and configuration
+│── bigquery-pipeline/            # BigQuery loading scripts
+│── config/                        # Configuration files
+│── data/                          # Data storage
+│   ├── cleaned/                   # Cleaned Parquet files
+│   ├── raw/                        # Raw files (optional)
+│── extract-pipeline/              # Data extraction scripts
+│── gcs-pipeline/                  # Cloud storage upload scripts
+│── staging-pipeline/              # Data cleanup and transformation
+│── .gitignore                      # Git ignore file
+│── README.md                       # Documentation
 ```
 
 ---
 
+## **Running the Pipeline**
+
+The entire ETL pipeline is now **dockerized** and managed with **Airflow**.
+
+### **To run the pipeline:**
+1. Open a terminal and navigate to the `airflow` directory:
+   ```sh
+   cd airflow
+   ```
+2. Start the Airflow services using Docker:
+   ```sh
+   docker-compose up -d
+   ```
+3. Open your web browser and log into **Airflow** on your local machine (usually at `http://localhost:8080`).
+4. Locate the pipeline DAG and trigger it.
+5. The pipeline will execute all stages, and you will see everything run correctly.
+
+---
+
 ## **Future Enhancements**
-1. **Orchestration with Airflow**
-   - Automate and schedule pipeline tasks.
-   - Monitor and retry failed tasks.
-2. **Incremental Loading**
+1. **Incremental Loading**
    - Process only new or updated data.
    - Reduce processing time for recurring datasets.
-3. **Data Validation**
+2. **Data Validation**
    - Add automated checks for data consistency and completeness.
-4. **Streaming Data Support**
+3. **Streaming Data Support**
    - Handle real-time data ingestion using tools like Kafka or Google Pub/Sub.
 
 ---
