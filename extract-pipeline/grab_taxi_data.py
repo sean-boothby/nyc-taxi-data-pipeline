@@ -2,6 +2,8 @@ import os
 import requests
 from datetime import datetime
 
+print(os.getcwd())
+
 # Base URL for NYC Taxi Data
 BASE_URL = "https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_{}-{}.parquet"
 
