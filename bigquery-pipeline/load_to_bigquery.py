@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from google.oauth2 import service_account
 
 # Load environment variables
-load_dotenv(r"C:\Users\Sean\Desktop\de-taxi-pipeline\config\.env")
+load_dotenv("../config/.env")
 
 # Google Cloud settings
 GCS_BUCKET_NAME = "nyc-taxi-data-pipeline"  # Change to your actual bucket

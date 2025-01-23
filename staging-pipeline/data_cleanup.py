@@ -4,12 +4,12 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv(r"C:\Users\Sean\Desktop\de-taxi-pipeline\config\.env")
+load_dotenv("../config/.env")
 
 # PostgreSQL connection settings
 DB_USER = os.getenv("DB_USER", "taxi_user")
 DB_PASS = os.getenv("DB_PASS", "taxi_pass")
-DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_HOST = os.getenv("DB_HOST", "postgres")
 DB_PORT = os.getenv("DB_PORT", "5432")
 DB_NAME = os.getenv("DB_NAME", "nyc_taxi")
 

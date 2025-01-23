@@ -3,7 +3,7 @@ from google.cloud import storage
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv(r"C:\Users\Sean\Desktop\de-taxi-pipeline\config\.env")
+load_dotenv("../config/.env")
 
 # Google Cloud Storage settings
 GCS_BUCKET_NAME = "nyc-taxi-data-pipeline"  # Change to your actual bucket name
