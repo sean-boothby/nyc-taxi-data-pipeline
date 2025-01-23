@@ -6,7 +6,7 @@ config/db_config.json
 config/gcs_config.json
 
 # Ignore Airflow logs
-airflow_logs/
+airflow/logs/
 
 # Ignore Python cache
 __pycache__/
